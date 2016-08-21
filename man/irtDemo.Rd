@@ -1,9 +1,6 @@
 
 \name{irtDemo}
 \alias{irtDemo}
-\alias{irtApp}
-\alias{irtShiny}
-
 \title{
   Item Response Theory Demo Collection
 }

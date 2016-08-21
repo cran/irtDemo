@@ -11,10 +11,9 @@ irtDemo <- function(text){
                    grm     = 'a818a2af7d5fe8f9ec726fce81677f1f',
                    grsm    = '0038e50f7c924b5d34ac9487c11c46c7',
                    nrm     = 'c2ee5461e11eddebc76bc3a6d37fb3e8',
-                   stop(paste("Enter one of the following: \n
-                              'mle' \n 'est2pl' \n 'est3pl' \n
-                              'eapMap' \n 'dich' \n 'gpcm' \n
-                              'grm' \n 'grsm' \n 'nrm' \n 'mirt' "))
+                   stop(paste("Enter one of the followings: 
+                   'mle', 'est2pl', 'est3pl', 'eapMap',
+                   'dich', 'gpcm', 'grm', 'grsm', 'nrm', 'mirt' "))
     )
     shiny::runGist(paste(demo))
 }

@@ -1,2 +1,6 @@
+# imports
+import(shiny)
 import(fGarch)
 import(shinydashboard)
+# exports
+export(irtDemo)
