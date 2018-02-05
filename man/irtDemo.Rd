@@ -16,41 +16,38 @@
 }
 
 \arguments{
-  \item{text}{argument in quotes refering to a demo. See details for demos available in the package.}
+  \item{text}{argument in quotes refering to the name of shiny application. See details for the list of applications.}
 }
 
 \details{
   \command{text} argument can be one of the followings:
-   \itemize{
-   \item{\dQuote{\command{mle}} for \emph{Maximum Likelihood Estimation}}
-   \item{\dQuote{\command{est2pl}} for \emph{Estimation in 2PL Model}}
-   \item{\dQuote{\command{est3pl}} for \emph{Estimation in 3PL Model}}
-   \item{\dQuote{\command{eapMap}} for \emph{Expected a Posteriori (EAP) and Maximum a Posteriori (MAP) Estimation}}
-   \item{\dQuote{\command{dich}} for \emph{Dichotomous IRT Models}}
-   \item{\dQuote{\command{gpcm}} for \emph{Generalized Partial Credit and Partial Credit Models}}
-   \item{\dQuote{\command{grm}} for \emph{Graded Response Model}}
-   \item{\dQuote{\command{grsm}} for \emph{Generalized Rating Scale and Rating Scale Models}}
-   \item{\dQuote{\command{nrm}} for \emph{Nominal Response Model}}
-   \item{\dQuote{\command{mirt}} for \emph{Multidimensional Item Response Theory Model}}
-   }
+    \itemize{
+      \item{\dQuote{\command{mle}} for \emph{Maximum Likelihood Estimation}}
+      \item{\dQuote{\command{est2pl}} for \emph{Estimation in 2PL Model}}
+      \item{\dQuote{\command{est3pl}} for \emph{Estimation in 3PL Model}}
+      \item{\dQuote{\command{eapmap}} for \emph{Expected a Posteriori (EAP) and Maximum a Posteriori (MAP) Estimation}}
+      \item{\dQuote{\command{dich}} for \emph{Dichotomous IRT Models}}
+      \item{\dQuote{\command{gpcm}} for \emph{Generalized Partial Credit and Partial Credit Models}}
+      \item{\dQuote{\command{grm}} for \emph{Graded Response Model}}
+      \item{\dQuote{\command{grsm}} for \emph{Generalized Rating Scale and Rating Scale Models}}
+      \item{\dQuote{\command{nrm}} for \emph{Nominal Response Model}}
+      \item{\dQuote{\command{mirt}} for \emph{Multidimensional Item Response Theory Model}}
+    }
 }
 
 \author{
   Metin Bulus
-   \email{bulusmetin@gmail.com} and
+  \email{bulusmetin@gmail.com} and
   Wes Bonifay
-   \email{bonifayw@missouri.edu}
-}
-\note{
-\command{irtDemo} calls \command{runGist} function in \command{shiny} package, which requires internet connection.
+  \email{bonifayw@missouri.edu}
 }
 
 \examples{
-\dontrun{
+  \dontrun{
 
-    irtDemo("eapMap")
+    irtDemo("eapmap")
     irtDemo("mirt")
-    }
+  }
 }
 
 \keyword{irtDemo}

@@ -1,4 +1,5 @@
 # imports
+importFrom("graphics", "plot")
 import(shiny)
 import(fGarch)
 import(shinydashboard)
