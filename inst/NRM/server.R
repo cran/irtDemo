@@ -22,7 +22,7 @@ shinyServer(function(input, output){
     p5 <- p5num/pdenom
     
     graphics::plot(NULL, ylab="P(X=m|theta)", xlab=expression(theta), main="Nominal Response Model", 
-              sub="Note: Baker's (1992) reparamterization used.", xlim=c(-6,6), ylim=c(0,1))
+              sub="Note: Baker's (1992) reparametrization is used.", xlim=c(-6,6), ylim=c(0,1))
     
     lines(thetas, p1, type="l",  xlim=c(-6,6), col=2)
     lines(thetas, p2, type="l",  xlim=c(-6,6), col=3)

@@ -86,7 +86,7 @@ shinyServer(function(input, output) {
             main=expression(paste("Posterior Distribution of ", theta)))
        EAP <- sum(Xr*AXr*LXr)/sum(AXr*LXr)
        PSD <- sqrt(sum((Xr-EAP)^2*LXr*AXr)/sum(LXr*AXr))
-       MAP <- Xr[which.max(AXr*LXr)]
+       MAP <- Xr[which.max(AXr*LXr)] #now it makes sense why it is iterative
        abline(v=EAP, col=4)
        abline(v=MAP,col=2)
        text(-1.8, max(AXr*LXr)*.9, paste('EAP =',round(EAP,4)),col=4)
@@ -100,15 +100,15 @@ shinyServer(function(input, output) {
        # plot posterior
        graphics::plot(Xr, 5*AXr*LXr, type='l', xlab=expression(X[r]), ylab=expression(f(X[r])), ylim=c(0,0.20), xlim=c(-4,4),
                                     main=expression(paste("Prior, Likelihood, and Posterior Distributions")),
-                                    sub=expression(paste("Note: Posterior distribution is rescaled for comperability!")))
+                                    sub=expression(paste("Note: Posterior distribution is rescaled")))
        # plot likelihood
        lines(Xr, LXr, type='l', col="blue")
        # plot prior
        lines(Xr, AXr, type='l', col="red")
 
        EAP <- sum(Xr*AXr*LXr)/sum(AXr*LXr)
-       text(-3.5, 0.2, paste('Posterior Mean =',round(EAP,2)), col="black")
-       text(3.5, 0.2, paste('Prior Mean =', input$mean), col="red")
+       text(-3, 0.2, paste('Posterior Mean =',round(EAP,2)), col="black")
+       text(3, 0.2, paste('Prior Mean =', input$mean), col="red")
        abline(v=input$mean,col="red", lty=2)
        abline(v=EAP, col="black", lty=2)
 

@@ -4,8 +4,6 @@ shinyServer(function(input, output){
 
     D <- switch(input$D, "1" = 1, "2" = 1.702)
 
-    if(input$alpha==0){stop("0 (zero) discrimination?!")}
-
     p1num=1
     for(j in 1:N){
         p2num[j] <- p2fun(D=D, theta=thetas[j], alpha=input$alpha, delta=input$delta, tau1=input$tau1)

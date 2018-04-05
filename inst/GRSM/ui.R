@@ -1,10 +1,12 @@
-shinyUI(bootstrapPage(
+shinyUI(
+
+  fluidPage(title="grsm",
 
   titlePanel("RSM (default) and GRSM"),
 
-    inputPanel(
-        selectInput("D", label = "Scaling Constant",
-                  list("1" = 1, "1.702"=2), selected = 1),
+   sidebarPanel(width=3,
+                selectInput("D", label = "Item Response Function",
+                            list("Normal Ogive" = 1, "Logistic"=2), selected = 2),
         sliderInput("alpha", label = "Discrimination",
                   min = -3, max = 3, value = 1, step = .5),
         sliderInput("delta", label = "Difficulty",
@@ -18,7 +20,8 @@ shinyUI(bootstrapPage(
         sliderInput("tau4", label = "Threshold 4",
                     min = -3, max = 3, value = 1, step = .5)
       ),
-
-    plotOutput(outputId="grsm_plot",width="60%", height="500px")
+    mainPanel(
+      plotOutput(outputId="grsm_plot", height="600px")
+    )
   )
 )

@@ -25,46 +25,32 @@ shinyUI(
         ),
         mainPanel(
           tabsetPanel(
-
             tabPanel("Item Response Surface",
-                     tabsetPanel(
-                       tabPanel("persp",
-                                inputPanel(
-                                  sliderInput("angle1", label = "Rotate Right-Left",
-                                              min = 0, max = 90, value = 30, step = 1),
-                                  sliderInput("angle2", label = "Rotate Up-Down",
-                                              min = 0, max = 90, value = 30, step = 1)
-                                ),
-                                plotOutput(outputId="plotpersp",width="650px", height="650px"),
-                                verbatimTextOutput(outputId="parms1")
-                       )
-                     )
-              ),
-
-              tabPanel("Contour Plot",
+                     inputPanel(
+                       sliderInput("angle1", label = "Rotate Right-Left",
+                                   min = 0, max = 90, value = 30, step = 1),
+                       sliderInput("angle2", label = "Rotate Up-Down",
+                                   min = 0, max = 90, value = 30, step = 1)
+                     ),
+                     plotOutput(outputId="M2PL_plot",width="650px", height="650px"),
+                     verbatimTextOutput(outputId="parms1")),
+            tabPanel("Contour Plot",
                      inputPanel(
                        sliderInput("nlevels", label = "N Contour Levels",
                                    min = 10, max = 100, value = 10, step = 1)
                      ),
-                     plotOutput(outputId="plotcont",width="650px", height="650px"),
-                     verbatimTextOutput(outputId="parms2")
-              ),
-
+                     plotOutput(outputId="cont_plot",width="650px", height="650px"),
+                     verbatimTextOutput(outputId="parms2")),
             tabPanel("Information Plot",
-              tabsetPanel(
-                tabPanel("persp",
-                         inputPanel(
-                           sliderInput("angleinfo1", label = "Rotate Right-Left",
-                                       min = 0, max = 90, value = 30, step = 1),
-                           sliderInput("angleinfo2", label = "Rotate Up-Down",
-                                       min = 0, max = 90, value = 30, step = 1)
-                         ),
-                         plotOutput(outputId="infopersp",width="650px", height="650px"),
-                         verbatimTextOutput(outputId="parms3")
-                )
-              )
-            )
+                     inputPanel(
+                       sliderInput("angle3", label = "Rotate Right-Left",
+                                   min = 0, max = 90, value = 30, step = 1),
+                       sliderInput("angle4", label = "Rotate Up-Down",
+                                   min = 0, max = 90, value = 30, step = 1)
+                     ),
+                     plotOutput(outputId="info_plot",width="650px", height="650px"),
+                     verbatimTextOutput(outputId="parms3"))
+          )
         )
       )
    )
-)

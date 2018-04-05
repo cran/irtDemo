@@ -2,8 +2,6 @@ shinyServer(function(input, output) {
 
     pjj <- reactive({
 
-      if(input$alpha1==0 | input$alpha2==0){stop("Select a discrimination value other than 0 (zero)!")}
-
       D <- switch(input$D, "1" = 1, "2" = 1.702)
       comp <- switch(input$comp, "1" = 1, "2" = 2)
       pjj <- matrix(NA,nrow=N,ncol=N)
@@ -28,21 +26,20 @@ shinyServer(function(input, output) {
 
     })
 
-    output$plotpersp <- renderPlot({
-      pjj <- pjj()
-      # plot probability as function of theta1 and theta2
-      p3D <-  graphics::persp(thetas1, thetas2, pjj,
-                              theta=input$angle1, phi=input$angle2,
-                              zlim=c(0,1),
-                              xlab=input$nametheta1,
-                              ylab=input$nametheta2,
-                              zlab="P(Y=1)", las = 1,
-                              nticks = 5, ticktype = "detailed"
-      )
-    })
+    output$M2PL_plot <- renderPlot({
+        pjj <- pjj()
+        # plot probability as function of theta1 and theta2
+        p3D <-  graphics::persp(thetas1, thetas2, pjj,
+                             theta=input$angle1, phi=input$angle2,
+                             zlim=c(0,1),
+                             xlab=input$nametheta1,
+                             ylab=input$nametheta2,
+                             zlab="P(Y=1|theta)",
+                             nticks = 5, ticktype = "detailed"
+                            )
+      })
 
-
-    output$plotcont <- renderPlot({
+    output$cont_plot <- renderPlot({
 
       pjj <- pjj()
       c <- input$c
@@ -59,7 +56,7 @@ shinyServer(function(input, output) {
       Di <- -gamma/Ai
 
       # plot probability as function of theta1 and theta2
-       graphics::contour(thetas1, thetas2, pjj, nlevels=input$nlevels, cex=1.5,
+       graphics::contour(thetas1, thetas2, pjj, nlevels=input$nlevels,
                    xlab=input$nametheta1,
                    ylab=input$nametheta2
                    )
@@ -92,7 +89,7 @@ shinyServer(function(input, output) {
         }
     })
 
-    output$infopersp <- renderPlot({
+    output$info_plot <- renderPlot({
       c <- input$c
       d <- input$d
       alpha1 <- input$alpha1
@@ -100,21 +97,21 @@ shinyServer(function(input, output) {
       Ai <- sqrt(alpha1^2+alpha2^2) #multidimensional discrimination
       pjj <- pjj()
       info <- matrix(NA,nrow=N,ncol=N)
-      for(j1 in 1:N){
-        for (j2 in 1:N){
-          info[j1,j2] <- (Ai^2)*((pjj[j1,j2]-c)^2)*((d-pjj[j1,j2])^2)/((d-c)^2)*((1-pjj[j1,j2])/pjj[j1,j2]) # (Magis, 2013)
+        for(j1 in 1:N){
+          for (j2 in 1:N){
+            info[j1,j2] <- (Ai^2)*((pjj[j1,j2]-c)^2)*((d-pjj[j1,j2])^2)/((d-c)^2)*((1-pjj[j1,j2])*pjj[j1,j2]) # (Magis, 2013)
+          }
         }
-      }
-      graphics::persp(thetas1, thetas2, info,
-                      theta=input$angleinfo1, phi=input$angleinfo2,
-                      zlim=c(0,max(info)),
-                      xlab=input$nametheta1,
-                      ylab=input$nametheta2,
-                      zlab="Information",
-                      nticks = 5, ticktype = "detailed"
-      )
-    })
 
+       graphics::persp(thetas1, thetas2, info,
+            theta=input$angle3, phi=input$angle4,
+            zlim=c(0,max(info) +.01),
+            xlab=input$nametheta1,
+            ylab=input$nametheta2,
+            zlab="information",
+            nticks = 5, ticktype = "detailed"
+            )
+    })
 
     output$parms1 <- renderText({
       paste("Item parameters: ","a1=",input$alpha1,
@@ -138,3 +135,4 @@ shinyServer(function(input, output) {
     })
 
 })
+

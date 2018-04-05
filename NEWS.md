@@ -1,15 +1,14 @@
-# Changes in `irtDemo` version 0.1.3
+### Changes in `irtDemo` version 0.1.4
+ - Allowed 0 (zero) discrimination in some applications
+ - Bug fixes for MIRT information plot
+ 
+### Changes in `irtDemo` version 0.1.3
  - Removed online dependency
 
-# Changes in `irtDemo` version 0.1.2
- - Export `irtDemo` function in NAMESPACE
- - Add README
- - Add NEWS
+### Changes in `irtDemo` version 0.1.2
+ - Exported `irtDemo` function in NAMESPACE
+ - Added README file
+ - Added NEWS file
  
-# Changes in `irtDemo` version 0.1.1
- - Bug fixes for "`est2pl`", and "`est3pl`" demos
- 
-# Initially in `irtDemo` version 0.1.0
- - "`mle`", "`est2pl`", "`est3pl`",
-   "`eapMap`","`dich`", "`gpcm`", 
-   "`grm`", "`grsm`", "`nrm`", "`mirt`"
+### Changes in `irtDemo` version 0.1.1
+ - Bug fixes for "`est2pl`" and "`est3pl`" applications

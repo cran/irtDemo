@@ -13,5 +13,3 @@ Pfun <- function(la=0, ua=1, alpha=1, theta, delta, D=1){
   P = la + ((ua-la)/(1 + exp(-z)))
   return(P)
 }
-
-

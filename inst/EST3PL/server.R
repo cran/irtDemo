@@ -248,155 +248,161 @@ shinyServer(function(input, output) {
       which(logLike12==max(logLike12), TRUE)
     })
 
-    output$est3PL_plot_all <- renderPlot({
-      xy1 <- xy1()
-      logLike1 <- logLike1()
-      xy2 <- xy2()
-      logLike2 <- logLike2()
-      xy3 <- xy3()
-      logLike3 <- logLike3()
-      xy4 <- xy4()
-      logLike4 <- logLike4()
-      xy5 <- xy5()
-      logLike5 <- logLike5()
-      xy6 <- xy6()
-      logLike6 <- logLike6()
-      xy7 <- xy7()
-      logLike7 <- logLike7()
-      xy8 <- xy8()
-      logLike8 <- logLike8()
-      xy9 <- xy9()
-      logLike9 <- logLike9()
-      xy10 <- xy10()
-      logLike10 <- logLike10()
-      xy11 <- xy11()
-      logLike11 <- logLike11()
-      xy12 <- xy12()
-      logLike12 <- logLike12()
+    observe({
+      if(input$submit>0) {
 
-        # plot joint log-likelihood as function of guess, alpha and delta parameters
-        # par(mar = c(6.5, 6.5, 0.5, 0.5), mgp = c(5, 1, 0))
-        logLike3D1 <-  graphics::persp(alphas, deltas, logLike1,
-                             theta=input$angle1, phi=input$angle2,
-                             ltheta = 120, shade = 0.75, col=2,
-                             xlab="Discrimination",
-                             ylab="Difficulty",
-                             zlab="Log-Likelihood")
+      output$est3PL_plot_all <- renderPlot({
+        xy1 <- isolate(xy1())
+        logLike1 <- isolate(logLike1())
+        xy2 <- isolate(xy2())
+        logLike2 <- isolate(logLike2())
+        xy3 <- isolate(xy3())
+        logLike3 <- isolate(logLike3())
+        xy4 <- isolate(xy4())
+        logLike4 <- isolate(logLike4())
+        xy5 <- isolate(xy5())
+        logLike5 <- isolate(logLike5())
+        xy6 <- isolate(xy6())
+        logLike6 <- isolate(logLike6())
+        xy7 <- isolate(xy7())
+        logLike7 <- isolate(logLike7())
+        xy8 <- isolate(xy8())
+        logLike8 <- isolate(logLike8())
+        xy9 <- isolate(xy9())
+        logLike9 <- isolate(logLike9())
+        xy10 <- isolate(xy10())
+        logLike10 <- isolate(logLike10())
+        xy11 <- isolate(xy11())
+        logLike11 <- isolate(logLike11())
+        xy12 <- isolate(xy12())
+        logLike12 <- isolate(logLike12())
 
-        par(new=TRUE)
-        logLike3D2 <-  graphics::persp(alphas, deltas, logLike2,
-                            ltheta = 120, shade = 0.75,
-                            theta=input$angle1, phi=input$angle2, col=3,
-                            xlab="",
-                            ylab="",
-                            zlab="")
+          # plot joint log-likelihood as function of guess, alpha and delta parameters
+          logLike3D1 <-  graphics::persp(alphas, deltas, logLike1,
+                               theta=input$angle1, phi=input$angle2,
+                               ltheta = 120, shade = 0.75, col=2,
+                               xlab="Discrimination",
+                               ylab="Location",
+                               zlab="Log-Likelihood",
+                               nticks = 5, ticktype = "detailed")
 
-        par(new=TRUE)
-        logLike3D3 <-  graphics::persp(alphas, deltas, logLike3,
-                            ltheta = 120, shade = 0.75,
-                            theta=input$angle1, phi=input$angle2, col=4,
-                            xlab="",
-                            ylab="",
-                            zlab="")
+          par(new=TRUE)
+          logLike3D2 <-  graphics::persp(alphas, deltas, logLike2,
+                              ltheta = 120, shade = 0.75,
+                              theta=input$angle1, phi=input$angle2, col=3,
+                              xlab="",
+                              ylab="",
+                              zlab="")
 
-        par(new=TRUE)
-        logLike3D4 <-  graphics::persp(alphas, deltas, logLike4,
-                            ltheta = 120, shade = 0.75,
-                            theta=input$angle1, phi=input$angle2, col=5,
-                            xlab="",
-                            ylab="",
-                            zlab="")
+          par(new=TRUE)
+          logLike3D3 <-  graphics::persp(alphas, deltas, logLike3,
+                              ltheta = 120, shade = 0.75,
+                              theta=input$angle1, phi=input$angle2, col=4,
+                              xlab="",
+                              ylab="",
+                              zlab="")
 
-        par(new=TRUE)
-        logLike3D5 <-  graphics::persp(alphas, deltas, logLike5,
-                            ltheta = 120, shade = 0.75,
-                            theta=input$angle1, phi=input$angle2, col=6,
-                            xlab="",
-                            ylab="",
-                            zlab="")
+          par(new=TRUE)
+          logLike3D4 <-  graphics::persp(alphas, deltas, logLike4,
+                              ltheta = 120, shade = 0.75,
+                              theta=input$angle1, phi=input$angle2, col=5,
+                              xlab="",
+                              ylab="",
+                              zlab="")
 
-        par(new=TRUE)
-        logLike3D6 <-  graphics::persp(alphas, deltas, logLike6,
-                            ltheta = 120, shade = 0.75,
-                            theta=input$angle1, phi=input$angle2, col=7,
-                            xlab="",
-                            ylab="",
-                            zlab="")
+          par(new=TRUE)
+          logLike3D5 <-  graphics::persp(alphas, deltas, logLike5,
+                              ltheta = 120, shade = 0.75,
+                              theta=input$angle1, phi=input$angle2, col=6,
+                              xlab="",
+                              ylab="",
+                              zlab="")
 
-        par(new=TRUE)
-        logLike3D7 <-  graphics::persp(alphas, deltas, logLike7,
-                            ltheta = 120, shade = 0.75,
-                            theta=input$angle1, phi=input$angle2, col=8,
-                            xlab="",
-                            ylab="",
-                            zlab="")
+          par(new=TRUE)
+          logLike3D6 <-  graphics::persp(alphas, deltas, logLike6,
+                              ltheta = 120, shade = 0.75,
+                              theta=input$angle1, phi=input$angle2, col=7,
+                              xlab="",
+                              ylab="",
+                              zlab="")
 
-        par(new=TRUE)
-        logLike3D8 <-  graphics::persp(alphas, deltas, logLike8,
-                            ltheta = 120, shade = 0.75,
-                            theta=input$angle1, phi=input$angle2, col=9,
-                            xlab="",
-                            ylab="",
-                            zlab="")
+          par(new=TRUE)
+          logLike3D7 <-  graphics::persp(alphas, deltas, logLike7,
+                              ltheta = 120, shade = 0.75,
+                              theta=input$angle1, phi=input$angle2, col=8,
+                              xlab="",
+                              ylab="",
+                              zlab="")
 
-        par(new=TRUE)
-        logLike3D9 <-  graphics::persp(alphas, deltas, logLike9,
-                            ltheta = 120, shade = 0.75,
-                            theta=input$angle1, phi=input$angle2, col=10,
-                            xlab="",
-                            ylab="",
-                            zlab="")
+          par(new=TRUE)
+          logLike3D8 <-  graphics::persp(alphas, deltas, logLike8,
+                              ltheta = 120, shade = 0.75,
+                              theta=input$angle1, phi=input$angle2, col=9,
+                              xlab="",
+                              ylab="",
+                              zlab="")
 
-        par(new=TRUE)
-        logLike3D10 <-  graphics::persp(alphas, deltas, logLike10,
-                            ltheta = 120, shade = 0.75,
-                            theta=input$angle1, phi=input$angle2, col=11,
-                            xlab="",
-                            ylab="",
-                            zlab="")
+          par(new=TRUE)
+          logLike3D9 <-  graphics::persp(alphas, deltas, logLike9,
+                              ltheta = 120, shade = 0.75,
+                              theta=input$angle1, phi=input$angle2, col=10,
+                              xlab="",
+                              ylab="",
+                              zlab="")
 
-        par(new=TRUE)
-        logLike3D11 <-  graphics::persp(alphas, deltas, logLike11,
-                            ltheta = 120, shade = 0.75,
-                            theta=input$angle1, phi=input$angle2, col=12,
-                            xlab="",
-                            ylab="",
-                            zlab="")
+          par(new=TRUE)
+          logLike3D10 <-  graphics::persp(alphas, deltas, logLike10,
+                              ltheta = 120, shade = 0.75,
+                              theta=input$angle1, phi=input$angle2, col=11,
+                              xlab="",
+                              ylab="",
+                              zlab="")
 
-        par(new=TRUE)
-        logLike3D12 <- graphics::persp(alphas, deltas, logLike12,
-                            ltheta = 120, shade = 0.75,
-                            theta=input$angle1, phi=input$angle2, col=13,
-                            xlab="",
-                            ylab="",
-                            zlab="")
+          par(new=TRUE)
+          logLike3D11 <-  graphics::persp(alphas, deltas, logLike11,
+                              ltheta = 120, shade = 0.75,
+                              theta=input$angle1, phi=input$angle2, col=12,
+                              xlab="",
+                              ylab="",
+                              zlab="")
 
-        maxLL  <- max(logLike1[xy1[1,1],xy1[1,2]],
-                      logLike2[xy2[1,1],xy2[1,2]],
-                      logLike3[xy3[1,1],xy3[1,2]],
-                      logLike4[xy4[1,1],xy4[1,2]],
-                      logLike5[xy5[1,1],xy3[1,2]],
-                      logLike6[xy6[1,1],xy1[1,2]],
-                      logLike7[xy7[1,1],xy2[1,2]],
-                      logLike8[xy8[1,1],xy3[1,2]],
-                      logLike9[xy9[1,1],xy4[1,2]],
-                      logLike10[xy7[1,1],xy2[1,2]],
-                      logLike11[xy8[1,1],xy3[1,2]],
-                      logLike12[xy9[1,1],xy4[1,2]])
+          par(new=TRUE)
+          logLike3D12 <- graphics::persp(alphas, deltas, logLike12,
+                              ltheta = 120, shade = 0.75,
+                              theta=input$angle1, phi=input$angle2, col=13,
+                              xlab="",
+                              ylab="",
+                              zlab="")
 
-            points(trans3d(alphas[xy1[1,1]], deltas[xy1[1,2]], logLike1[xy1[1,1],xy1[1,2]], logLike3D1), col='black', pch=21, bg = 2, cex=1.5)
-            points(trans3d(alphas[xy2[1,1]], deltas[xy2[1,2]], logLike2[xy2[1,1],xy2[1,2]], logLike3D2), col='black', pch=21, bg = 3, cex=1.5)
-            points(trans3d(alphas[xy3[1,1]], deltas[xy3[1,2]], logLike3[xy3[1,1],xy3[1,2]], logLike3D3), col='black', pch=21, bg = 4, cex=1.5)
-            points(trans3d(alphas[xy4[1,1]], deltas[xy4[1,2]], logLike4[xy4[1,1],xy4[1,2]], logLike3D4), col='black', pch=21, bg = 5, cex=1.5)
-            points(trans3d(alphas[xy5[1,1]], deltas[xy5[1,2]], logLike5[xy5[1,1],xy3[1,2]], logLike3D5), col='black', pch=21, bg = 6, cex=1.5)
-            points(trans3d(alphas[xy6[1,1]], deltas[xy6[1,2]], logLike6[xy6[1,1],xy1[1,2]], logLike3D6), col='black', pch=21, bg = 7, cex=1.5)
-            points(trans3d(alphas[xy7[1,1]], deltas[xy7[1,2]], logLike7[xy7[1,1],xy2[1,2]], logLike3D7), col='black', pch=21, bg = 8, cex=1.5)
-            points(trans3d(alphas[xy8[1,1]], deltas[xy8[1,2]], logLike8[xy8[1,1],xy3[1,2]], logLike3D8), col='black', pch=21, bg = 9, cex=1.5)
-            points(trans3d(alphas[xy9[1,1]], deltas[xy9[1,2]], logLike9[xy9[1,1],xy4[1,2]], logLike3D9), col='black', pch=21, bg = 10, cex=1.5)
-        points(trans3d(alphas[xy10[1,1]], deltas[xy10[1,2]], logLike10[xy10[1,1],xy3[1,2]], logLike3D10), col='black', pch=21, bg = 11, cex=1.5)
-        points(trans3d(alphas[xy11[1,1]], deltas[xy11[1,2]], logLike11[xy11[1,1],xy1[1,2]], logLike3D11), col='black', pch=21, bg = 12, cex=1.5)
-        points(trans3d(alphas[xy12[1,1]], deltas[xy12[1,2]], logLike12[xy12[1,1],xy2[1,2]], logLike3D12), col='black', pch=21, bg = 13, cex=1.5)
+          maxLL  <- max(logLike1[xy1[1,1],xy1[1,2]],
+                        logLike2[xy2[1,1],xy2[1,2]],
+                        logLike3[xy3[1,1],xy3[1,2]],
+                        logLike4[xy4[1,1],xy4[1,2]],
+                        logLike5[xy5[1,1],xy3[1,2]],
+                        logLike6[xy6[1,1],xy1[1,2]],
+                        logLike7[xy7[1,1],xy2[1,2]],
+                        logLike8[xy8[1,1],xy3[1,2]],
+                        logLike9[xy9[1,1],xy4[1,2]],
+                        logLike10[xy7[1,1],xy2[1,2]],
+                        logLike11[xy8[1,1],xy3[1,2]],
+                        logLike12[xy9[1,1],xy4[1,2]])
 
-        legend(legend=paste("c=", seq(0.05, .60, .05), sep=""), col=2:13, pch=19, title="Guessing", "right")
-      })
+              points(trans3d(alphas[xy1[1,1]], deltas[xy1[1,2]], logLike1[xy1[1,1],xy1[1,2]], logLike3D1), col='black', pch=21, bg = 2, cex=1.5)
+              points(trans3d(alphas[xy2[1,1]], deltas[xy2[1,2]], logLike2[xy2[1,1],xy2[1,2]], logLike3D2), col='black', pch=21, bg = 3, cex=1.5)
+              points(trans3d(alphas[xy3[1,1]], deltas[xy3[1,2]], logLike3[xy3[1,1],xy3[1,2]], logLike3D3), col='black', pch=21, bg = 4, cex=1.5)
+              points(trans3d(alphas[xy4[1,1]], deltas[xy4[1,2]], logLike4[xy4[1,1],xy4[1,2]], logLike3D4), col='black', pch=21, bg = 5, cex=1.5)
+              points(trans3d(alphas[xy5[1,1]], deltas[xy5[1,2]], logLike5[xy5[1,1],xy3[1,2]], logLike3D5), col='black', pch=21, bg = 6, cex=1.5)
+              points(trans3d(alphas[xy6[1,1]], deltas[xy6[1,2]], logLike6[xy6[1,1],xy1[1,2]], logLike3D6), col='black', pch=21, bg = 7, cex=1.5)
+              points(trans3d(alphas[xy7[1,1]], deltas[xy7[1,2]], logLike7[xy7[1,1],xy2[1,2]], logLike3D7), col='black', pch=21, bg = 8, cex=1.5)
+              points(trans3d(alphas[xy8[1,1]], deltas[xy8[1,2]], logLike8[xy8[1,1],xy3[1,2]], logLike3D8), col='black', pch=21, bg = 9, cex=1.5)
+              points(trans3d(alphas[xy9[1,1]], deltas[xy9[1,2]], logLike9[xy9[1,1],xy4[1,2]], logLike3D9), col='black', pch=21, bg = 10, cex=1.5)
+          points(trans3d(alphas[xy10[1,1]], deltas[xy10[1,2]], logLike10[xy10[1,1],xy3[1,2]], logLike3D10), col='black', pch=21, bg = 11, cex=1.5)
+          points(trans3d(alphas[xy11[1,1]], deltas[xy11[1,2]], logLike11[xy11[1,1],xy1[1,2]], logLike3D11), col='black', pch=21, bg = 12, cex=1.5)
+          points(trans3d(alphas[xy12[1,1]], deltas[xy12[1,2]], logLike12[xy12[1,1],xy2[1,2]], logLike3D12), col='black', pch=21, bg = 13, cex=1.5)
+
+          legend(legend=paste("c=", seq(0.05, .60, .05), sep=""), col=2:13, pch=19, title="Lower Asymptote", "right")
+        })
+
+      }
+    })
 })

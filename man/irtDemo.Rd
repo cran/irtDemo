@@ -16,7 +16,7 @@
 }
 
 \arguments{
-  \item{text}{argument in quotes refering to the name of shiny application. See details for the list of applications.}
+  \item{text}{argument in quotes referring to the name of shiny application. See details for the list of applications.}
 }
 
 \details{
@@ -49,5 +49,3 @@
     irtDemo("mirt")
   }
 }
-
-\keyword{irtDemo}

@@ -1,8 +1,8 @@
 Package: irtDemo
 Type: Package
 Title: Item Response Theory Demo Collection
-Version: 0.1.3
-Date: 2018-02-05
+Version: 0.1.4
+Date: 2018-04-05
 Author: Metin Bulus [aut,cre]
         Wes Bonifay [aut,cre]
 Maintainer: Metin Bulus <bulusmetin@gmail.com>
@@ -10,11 +10,10 @@ Description:
   Includes a collection of shiny applications to demonstrate
   or to explore fundamental item response theory (IRT) concepts
   such as estimation, scoring, and multidimensional IRT models.
-Imports: shiny (>= 0.13.2), shinydashboard (>= 0.5.1), fGarch (>=
-        3010.82)
 Depends: R (>= 3.2.4)
+Imports: shiny (>= 0.13.2), fGarch (>= 3010.82)
 License: GPL (>= 2)
 NeedsCompilation: no
-Packaged: 2018-02-05 21:27:37 UTC; Assistant
+Packaged: 2018-04-05 20:16:25 UTC; Assistant
 Repository: CRAN
-Date/Publication: 2018-02-05 21:34:46 UTC
+Date/Publication: 2018-04-05 20:29:46 UTC

@@ -19,7 +19,7 @@ shinyServer(function(input, output){
     })
     
       
-    graphics::plot(NULL, ylab=expression(P(X)), xlab=expression(theta), main=paste(title), xlim=c(-6,6), ylim=c(0,1))
+    graphics::plot(NULL, ylab=expression(P(X)), xlab=expression(theta), xlim=c(-6,6), ylim=c(0,1))
 
     modprob <- switch(input$modprob, "1" = 1, "2" = 2)
     
