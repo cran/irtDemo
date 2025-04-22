@@ -1,3 +1,7 @@
+### Changes in `irtDemo` version 0.1.5
+ - Maintainer clarity 
+ - Added reference
+
 ### Changes in `irtDemo` version 0.1.4
  - Allowed 0 (zero) discrimination in some applications
  - Bug fixes for MIRT information plot

@@ -49,3 +49,7 @@
     irtDemo("mirt")
   }
 }
+
+\references{
+Bulus, M., & Bonifay, W.  (2022). irtDemo R Package: Pedagogical Interactive Web Applications for Estimation, Scoring, and Multi Dimensionality in Item Response Theory. Anadolu University Journal of Education Faculty, 6(1), 92-108. \doi{10.34056/aujef.913781}
+}

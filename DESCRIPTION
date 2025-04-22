@@ -1,10 +1,11 @@
 Package: irtDemo
 Type: Package
 Title: Item Response Theory Demo Collection
-Version: 0.1.4
-Date: 2018-04-05
-Author: Metin Bulus [aut,cre]
-        Wes Bonifay [aut,cre]
+Version: 0.1.5
+Date: 2025-04-21
+Authors@R: 
+  c(person(given = "Metin", family = "Bulus", role = c("aut", "cre"), email = "bulusmetin@gmail.com"),
+    person(given = "Wes", family = "Bonifay", role = c("aut", "ctb")))
 Maintainer: Metin Bulus <bulusmetin@gmail.com>
 Description: 
   Includes a collection of shiny applications to demonstrate
@@ -14,6 +15,8 @@ Depends: R (>= 3.2.4)
 Imports: shiny (>= 0.13.2), fGarch (>= 3010.82)
 License: GPL (>= 2)
 NeedsCompilation: no
-Packaged: 2018-04-05 20:16:25 UTC; Assistant
+Packaged: 2025-04-22 04:01:39 UTC; LENOVO
+Author: Metin Bulus [aut, cre],
+  Wes Bonifay [aut, ctb]
 Repository: CRAN
-Date/Publication: 2018-04-05 20:29:46 UTC
+Date/Publication: 2025-04-22 04:20:02 UTC
